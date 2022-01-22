@@ -17,11 +17,12 @@ const storage = multer.diskStorage({
   },
 });
 // "фильтр"
+
 REGEXP_MIMETYPES = /^image\/(gif|jpeg|jpg|png)/;
-function filterFiles(req, res, cb) {
-  if (file.mimetype === '/image/jpeg') {
-    cb(null, false);
-  }
+function filterFiles(req, file, cb) {
+  //if (file.mimetype === '/image/jpg') {
+  //  cb(null, false);
+  //}
   cb(null, REGEXP_MIMETYPES.test(file.mimetype));
 }
 

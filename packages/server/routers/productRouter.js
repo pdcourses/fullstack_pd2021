@@ -12,7 +12,10 @@ productRouter
   .delete(productController.deleteById);
 
 //images
-//127.0.0.1:5000/api/products/1/images
+//POST 127.0.0.1:5000/api/products/1/images
+
+//Content-type multipart/form-data
+// key: add_image
 
 productRouter.patch(
   '/:productId/images',
