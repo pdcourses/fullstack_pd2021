@@ -3,7 +3,7 @@ const _ = require('lodash');
 
 module.exports.getUsers = async (req, res, next) => {
   try {
-    const foundUser = await User.findAll({
+    const foundUsers = await User.findAll({
       raw: true,
       attributes: {
         exclude: ['createdAt', 'updatedAt'],
@@ -11,7 +11,8 @@ module.exports.getUsers = async (req, res, next) => {
       },
       limit: 5,
     });
-    res.status(200).send(foundUser);
+    // запаковка массива в поле обьекта data
+    res.status(200).send({ data: foundUsers });
   } catch (e) {
     next(e);
   }
